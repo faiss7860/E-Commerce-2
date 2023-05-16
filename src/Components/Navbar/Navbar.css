@@ -1,0 +1,170 @@
+.Navbar {
+    height: 85px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #000000;
+  }
+  .muscle{
+    color: white;
+    font-size: 40px;
+  }
+  .Navbar > .nav-logo {
+    font-weight: 700;
+    font-size: 21px;
+    margin: 15px;
+    color: white;
+  }
+  
+  .Navbar > .nav-items > a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 15px;
+    position: relative;
+    opacity: 0.9;
+  }
+  
+  .Navbar > .nav-items > a:hover {
+    opacity: 1;
+  }
+  
+  .Navbar > .nav-items > a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: rgb(0, 204, 255);
+    transition: all 0.45s;
+  }
+  
+  .Navbar > .nav-items > a:hover::before {
+    width: 100%;
+  }
+  
+  .Navbar > .nav-toggle {
+    display: none;
+  }
+  
+  @media (max-width: 700px) {
+    .Navbar > .nav-items {
+      position: absolute;
+      top: 78px;
+      display: flex;
+      flex-direction: column;
+      background: #000000;
+      left: 0;
+      width: 100%;
+      transform: translateX(-100%);
+      transition: all .45s;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+  
+    .Navbar > .nav-items > a::before {
+        background: transparent;
+    }
+  
+    .Navbar > .nav-items.open {
+        transform: translateX(0);
+    }
+  
+    .Navbar > .nav-toggle {
+      display: flex;
+      width: 50px;
+      height: 50px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  
+    .nav-toggle > .bar {
+      position: relative;
+      width: 32px;
+      height: 2px;
+      background: rgb(255, 255, 255);
+      transition: all 0.45s ease-in-out;
+    }
+  
+    .nav-toggle > .bar::before,
+    .nav-toggle > .bar::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      background: white;
+      border-radius: 2px;
+      transition: all 0.45s ease-in-out;
+    }
+  
+    .nav-toggle > .bar::before {
+      width: 25px;
+      transform: translateY(-8px);
+      right: 0;
+    }
+  
+    .nav-toggle > .bar::after {
+      width: 32px;
+      transform: translateY(8px);
+    }
+  
+    .nav-toggle.open > .bar {
+        transform: translateX(-40px);
+        background: transparent;
+    }
+  
+    .nav-toggle.open > .bar::before {
+        width: 32px;
+        transform: rotate(45deg) translate(26px, -26px);
+    }
+  
+    .nav-toggle.open > .bar::after {
+      transform: rotate(-45deg) translate(26px, 26px);
+    } 
+  
+  }
+
+
+  .Navbar {
+    --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #3ed8c3);
+    --curve-size: .5em;
+    --blur: 30px;
+    --bg: #080312;
+    --color: #afffff;
+    color: var(--color);
+      /* use position: relative; so that BG is only for .Navbar */
+    position: relative;
+    isolation: isolate;
+    border: 0;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
+  }
+  
+  /* .Navbar::after, */
+  .Navbar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+  
+  .Navbar::before {
+    background: var(--border-color);
+    background-size: 300% 300%;
+    animation: move-bg7234 5s ease infinite;
+    z-index: -2;
+  }
+  
+  @keyframes move-bg7234 {
+    0% {
+      background-position: 31% 0%
+    }
+  
+    50% {
+      background-position: 70% 100%
+    }
+  
+    100% {
+      background-position: 31% 0%
+    }
+  }
